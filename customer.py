@@ -15,5 +15,5 @@ class Customer:
         else:
             raise ValueError("name should be a string")
 
-c1 = Customer("Tie")
+c1 = Customer("Tiekkjikiojuokjtkoiyokkihjkujotokutlmkojmukmik6m")
 print(c1.name)

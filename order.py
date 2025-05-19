@@ -1,25 +1,22 @@
-class Coffee:
-    def __init__(self, name):
-        self._name = None
-        self.name = name  
+class Order:
+    def __init__(self, customer, coffee, price):
+        self._customer = customer
+        self._coffee = coffee
+        self.price = price  
 
     @property
-    def name(self):
-        return self._name
+    def price(self):
+        return self._price
 
-    @name.setter
-    def name(self, name):
-        if self._name is not None:
-            raise ValueError("name is immutable")
+    @price.setter
+    def price(self, price):
+        if isinstance(price, float):
+            if 1.0 <= price <= 10.0:
+                self._price = price
+            else:
+                raise ValueError("the price must be between 1.0 - 10.0")
+        else:
+            raise ValueError("the price must be a float")
         
-        if not isinstance(name, str):
-            raise ValueError("name must be a string")
-        
-        if not (1 <= len(name) <= 3):
-            raise ValueError("name must be between 1-3 characters long")
-
-        self._name = name
-
-c1= Coffee("rte")
-c1.name = "tis"
-print(c1.name)
+c1 = Order("Tom","Mocha","15.4")
+print(c1)
