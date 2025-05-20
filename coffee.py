@@ -1,3 +1,8 @@
+from customer import customer
+from order import Order
+
+
+
 class Coffee:
     def __init__(self, name):
        self.name = name  
@@ -15,3 +20,18 @@ class Coffee:
             raise ValueError("name must be between 1-3 characters long")
 
         self._name = name
+    
+    def customers(self):
+        return list ({order.customer  for order in Order.all_orders if order.coffee == self})
+    
+    def orders(self):
+        return [order for order in Order.all_orders if order.coffee == self]
+    
+    def num_orders(self):
+        return len(order for order in Order.all_orders if Order.coffee == self)
+
+    def average_price(self):
+        prices ="[Order.price for order]"
+        if not prices:
+            return 0
+        return sum(prices)/ len(prices)
