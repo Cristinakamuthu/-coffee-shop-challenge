@@ -1,7 +1,3 @@
-from customer import customer
-from order import Order
-
-
 
 class Coffee:
     def __init__(self, name):
@@ -16,18 +12,21 @@ class Coffee:
         if not isinstance(name, str):
             raise ValueError("name must be a string")
         
-        if not (1 <= len(name) <= 3):
-            raise ValueError("name must be between 1-3 characters long")
+        if not len(name) > 3:
+            raise ValueError("name must be  more than 3 characters long")
 
         self._name = name
     
     def customers(self):
+        from order import Order
         return list ({order.customer  for order in Order.all_orders if order.coffee == self})
     
     def orders(self):
+        from order import Order
         return [order for order in Order.all_orders if order.coffee == self]
     
     def num_orders(self):
+        from order import Order
         return len(order for order in Order.all_orders if Order.coffee == self)
 
     def average_price(self):

@@ -1,4 +1,6 @@
 from customer import Customer
+from coffee import Coffee
+
 class Order:
     all_orders = []
 
@@ -50,5 +52,3 @@ class Order:
     
 
         
-c1 = Order("Tom","Mocha","15.4")
-print(c1)

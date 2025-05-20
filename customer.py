@@ -1,4 +1,4 @@
-from order import order
+
 
 class Customer:
     def __init__(self, name):
@@ -18,17 +18,19 @@ class Customer:
             raise ValueError("name should be a string")
     
     def orders(self):
-       return [order for order in order.all_order if order.customer ==  self]
+       from order import Order
+       return [order for order in Order.all_order if Order.customer ==  self]
     
     def coffees(self):
-        return list({order.coffee for order in  order.all_orders if order.customer == self})
+        from order import Order
+        return list({order.coffee for order in  Order.all_orders if Order.customer == self})
 
-    def create_order(self, coffee, price):
-        return(self,coffee, price)
     
-        
+def create_order(self, coffee, price):
+    from order import Order
+    return Order(self, coffee, price)
+
+
         
         
 
-c1 = Customer("Tiekkjikiojuokjtkoiyokkihjkujotokutlmkojmukmik6m")
-print(c1.name)
