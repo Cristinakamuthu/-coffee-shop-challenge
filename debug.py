@@ -9,7 +9,7 @@ mocha = Coffee("Mocha")
 o1 = c1.create_order(latte, 4.5)
 o3 = c1.create_order(mocha, 4.0)
 
-print(o1)
+print(o1.all_orders)
 print(o3)
 
 print(c1.orders())    
